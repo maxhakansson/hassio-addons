@@ -2,7 +2,7 @@
 set -e
 
 echo "[Info] Show audio device"
-aplay -l
+# aplay -l
 
 CONFIG_PATH=/data/options.json
 
