@@ -43,7 +43,7 @@ for i in `seq 0 $(($length-1))`; do
   fi
 
   PCM="$(jq --raw-output ".instances[$i] .pcm" $CONFIG_PATH)"
-  if [ "$PCM" == "null" ] ; then
+  if [ "$PCM" != "null" ] ; then
     echo "[Info] Setting aplay -D $PCM"
     aplay -D "$PCM"
   fi
