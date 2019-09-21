@@ -8,7 +8,7 @@ ENV LANG C.UTF-8
 # Setup base
 RUN apt-get update
 RUN apt-get install -y jq sox
-RUN apt-get install -y alsa-utils
+# RUN apt-get install -y alsa-utils
 
 # Install raspotify (librespot wrapper)
 RUN curl -sL https://dtcooper.github.io/raspotify/install.sh | sh

@@ -1,12 +1,14 @@
 {
   "name": "Spotify connect",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "slug": "spotify_connect",
   "description": "Allow device to be discovered by Spotify and play music via Spotify Connect",
   "arch":["armhf"],
   "startup": "application",
   "boot": "auto",
   "audio": true,
+  "devices": ["/dev/snd:/dev/snd:rwm"],
+  "host_ipc": true,
   "hassio_api": true,
   "hassio_role": "default",
   "options": {
