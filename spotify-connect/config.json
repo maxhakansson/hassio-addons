@@ -27,6 +27,7 @@
         "spotify_user": "str?",
         "spotify_password": "str?",
         "speaker": "str?",
+        "pcm": "str?",
         "bitrate": "match(96|160|320)?",
         "allow_guests": "bool?",
         "initial_volume": "int(0,100)?",

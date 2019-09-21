@@ -2,7 +2,10 @@
 set -e
 
 echo "[Info] Show audio device"
-# aplay -l
+aplay -l
+
+echo "[Info] List all PCMs defined"
+aplay --list-pcms
 
 CONFIG_PATH=/data/options.json
 
@@ -37,6 +40,12 @@ for i in `seq 0 $(($length-1))`; do
   INITIAL_VOLUME="$(jq --raw-output ".instances[$i] .initial_volume" $CONFIG_PATH)"
   if [ "$INITIAL_VOLUME" == "null" ] ; then
     INITIAL_VOLUME=80
+  fi
+
+  PCM="$(jq --raw-output ".instances[$i] .pcm" $CONFIG_PATH)"
+  if [ "$PCM" == "null" ] ; then
+    echo "[Info] Setting aplay -D $PCM"
+    aplay -D "$PCM"
   fi
 
   SPOTIFY_USER="$(jq --raw-output ".instances[$i] .spotify_user" $CONFIG_PATH)"
